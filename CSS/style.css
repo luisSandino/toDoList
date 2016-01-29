@@ -1,0 +1,10 @@
+.hecha-true{
+	text-decoration: line-through;
+	color: gray;
+}
+.glyphicon-remove{
+	float: right;
+}
+form{
+	margin-bottom: 3em;
+}

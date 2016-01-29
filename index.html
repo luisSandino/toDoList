@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myToDoList">
+	<head>
+		<title>My To Do list (Angular)</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link rel="stylesheet" type="text/css" href="CSS/style.css">
+		<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+	</head>
+	<body>
+		<div class="container"  ng-controller="todoController as miLista">
+	
+			<div class="panel panel-primary">
+			  <div class="panel-heading"><h1>Lista de cosas por hacer de Luis</h1></div>
+			  <div class="panel-body">
+				
+				
+				<form class="form-inline" name="toDoForm" ng-submit="agregarTarea()">
+				  <div class="form-group">
+				    <label for="tarea"> <h3>Mi tarea es:</h3>  </label>
+				    <input type="text" class="form-control input-lg" id="tarea" ng-model="nuevaTarea.tarea" placeholder="Escribe una tarea" name="tarea" required>
+			        <label for="fecha"><h3>Fecha a realizarse :</h3> </label>
+				    <input type="date" class="form-control input-lg" id="fecha" ng-model="nuevaTarea.fecha" placeholder="Escribe una tarea" name="tarea" required>
+				  <button type="submit" class="btn btn-succes btn-lg btn-primary">Agregar a lista</button>
+				  </div>
+			
+				</form>	 
+				<ul class="list-group">
+				  <li class="list-group-item unstyled" ng-repeat="lista in listas">
+				  	<input type="checkbox" ng-model="tarea.hecha">
+				  	<span class="hecha-{{tarea.hecha}} "  >{{lista.tarea}} <strong>ESTA SERÁ REALIZADA EN LA SIGUIENTE FECHA </strong> {{lista.fecha | date}}</span>
+					<a href="" ng-click="borrarTarea($index)"><span class="glyphicon glyphicon-remove btn btn-danger btn-xs"></span></a>
+				  </li>
+				  
+				</ul>
+			    
+			  </div>
+			</div>
+
+
+
+		</div>
+			
+
+		<script src="bower_components/jquery/dist/jquery.min.js"></script>
+		<script src="bower_components/angular/angular.min.js"></script>
+		<script src="bower_components/angular/ngStorage.min.js"></script>
+		<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="JS/app.js"></script>
+	</body>
+</html>
+
+
+
