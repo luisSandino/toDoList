@@ -1,10 +1,13 @@
 angular.module('myToDoList', ['ngStorage'] )
 .controller('todoController', function($scope, $localStorage) {
 
-
+	$scope.$storage = $localStorage.$default({
+      listas: []
+      
+    });
 	
 	
-	$scope.listas= [];
+	$scope.listas = $localStorage.listas;
 
 	$scope.agregarTarea= function() {
 		$scope.listas.push($scope.nuevaTarea);
